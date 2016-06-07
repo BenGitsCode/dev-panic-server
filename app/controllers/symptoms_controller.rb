@@ -51,16 +51,15 @@ class SymptomsController < ApplicationController
     @title = symptom_params['title']
     @symptoms = Symptom.find_by title: @title
     render json: @symptoms
-
   end
 
   private
 
-    def set_symptom
-      @symptom = Symptom.find(params[:id])
-    end
+  def set_symptom
+    @symptom = Symptom.find(params[:id])
+  end
 
-    def symptom_params
-      params.require(:symptom).permit(:title, :solution, :url, :media, :private)
-    end
+  def symptom_params
+    params.require(:symptom).permit(:title, :solution, :url, :media, :private)
+  end
 end
