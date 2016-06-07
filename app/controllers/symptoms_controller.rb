@@ -47,6 +47,13 @@ class SymptomsController < ApplicationController
     head :no_content
   end
 
+  def getsolutions
+    @title = symptom_params['title']
+    @symptoms = Symptom.find_by title: @title
+    render json: @symptoms
+
+  end
+
   private
 
     def set_symptom
@@ -56,14 +63,4 @@ class SymptomsController < ApplicationController
     def symptom_params
       params.require(:symptom).permit(:title, :solution, :url, :media, :private)
     end
-end
-
-def getSolutions
-
-  @symptoms1 = Symptom.find_by title: 'I have Imposter Syndrome'
-  @symptoms2 = Symptom.find_by title: 'I am having an anxiety attack'
-  @symptoms3 = Symptom.find_by title: 'I don not want to be a developer anymore'
-  @symptoms4 = Symptom.find_by title: 'I hate networking'
-  @symptoms5 = Symptom.find_by title: 'My code is breaking and I do not know why'
-  @symptoms6 = Symptom.find_by title: 'I just want a Sleepy-Roberto pep talk'
 end

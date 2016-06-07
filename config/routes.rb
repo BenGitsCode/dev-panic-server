@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/sign-in' => 'users#signin'
   delete '/sign-out/:id' => 'users#signout'
   patch '/change-password/:id' => 'users#changepw'
+  post '/get-solutions/' => 'symptoms#getsolutions'
   resources :users, only: [:index, :show] do
     resources :symptoms, shallow: true
   end
