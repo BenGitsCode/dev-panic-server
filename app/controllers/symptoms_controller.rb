@@ -1,4 +1,4 @@
-class SymptomsController < ApplicationController
+class SymptomsController < ProtectedController
   before_action :set_symptom, only: [:show, :update, :destroy]
 
   # GET /symptoms
@@ -18,7 +18,7 @@ class SymptomsController < ApplicationController
   # POST /symptoms
   # POST /symptoms.json
   def create
-    @symptom = Symptom.new(symptom_params)
+    @symptom = current_user.symptoms.build(symptom_params)
 
     if @symptom.save
       render json: @symptom, status: :created, location: @symptom
