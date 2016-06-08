@@ -1,3 +1,4 @@
+#
 class SymptomsController < ProtectedController
   before_action :set_symptom, only: [:show, :update, :destroy]
 
