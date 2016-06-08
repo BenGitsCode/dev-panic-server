@@ -49,7 +49,7 @@ class SymptomsController < ApplicationController
 
   def getsolutions
     @title = symptom_params['title']
-    @symptoms = Symptom.find_by title: @title
+    @symptoms = Symptom.where title: @title
     render json: @symptoms
   end
 
