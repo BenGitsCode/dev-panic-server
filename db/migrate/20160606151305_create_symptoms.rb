@@ -6,7 +6,6 @@ class CreateSymptoms < ActiveRecord::Migration
       t.string :url
       t.string :media
       t.boolean :private
-      t.references :user, index: true, foreign_key: true, null: false
       t.timestamps null: false
     end
   end
