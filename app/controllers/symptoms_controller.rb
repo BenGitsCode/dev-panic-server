@@ -61,6 +61,7 @@ class SymptomsController < ProtectedController
   end
 
   def symptom_params
+    # binding.pry
     params.require(:symptom).permit(:title, :solution, :url, :media, :private)
   end
 end
