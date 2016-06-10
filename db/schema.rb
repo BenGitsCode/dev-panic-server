@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20160610030305) do
 
   add_index "examples", ["user_id"], name: "index_examples_on_user_id", using: :btree
 
+  create_table "passes", force: :cascade do |t|
+    t.text     "crud"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "passes", ["user_id"], name: "index_passes_on_user_id", using: :btree
+
   create_table "symptoms", force: :cascade do |t|
     t.string   "title"
     t.text     "solution"
@@ -50,5 +59,6 @@ ActiveRecord::Schema.define(version: 20160610030305) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "examples", "users"
+  add_foreign_key "passes", "users"
   add_foreign_key "symptoms", "users"
 end
