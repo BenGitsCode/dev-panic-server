@@ -1,4 +1,4 @@
-class PassesController < ApplicationController
+class PassesController < ProtectedController
   before_action :set_pass, only: [:show, :update, :destroy]
 
   # GET /passes
